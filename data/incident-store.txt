@@ -1,0 +1,28 @@
+INC123
+Short Description: Rates not available
+Date: 2023-08-20:  
+Description: Rates are not ticking for USD/UG3/SP. Please investigate
+State: Closed
+Issue: All cross pair rates for TD or tenor 20230901 are not available from upstream due to an issue in the Static Data Store Service
+Customer Impact: From 2023-08-20 start of day until 11:35 all clients would not have been able to get any rates or book deals for any cross pairs (all non-USD pairs like EURZAR) for the tenor TD or broken date 20230901.
+Root Cause: A bug was found in Static Data Store Service which was triggered by the US holiday on 20230904 which caused rates to fail for 20230901.
+Root Cause Fix: N/A - FX Data Team is still investigating.
+Runbook: Rates Error Mapping Runbook
+Mitigation fix: Pricing Service has switched over to the 360T fallback feed until the issue in Static Data Store Service is resolved.
+
+INC456
+Short Description: User at CorpA not getting OTP
+Date: 2023-09-21:  
+Description: Mary Sue at CorpA is not getting on OTP when she tries to login
+State: On Hold
+Notes:
+        2023-09-21 13:00: @SupportMember1 reached out to the communication delivery team to ask what if there are issues, waiting on feedback.
+        
+INC789
+Short Description: Application keeps crashing
+Date: 2023-07-21:  
+Description: Bob Jons at MegaCorpB has the app crashing when he clicks on detach. 
+State: In Progress
+Notes:
+        2023-09-21 09:30: @SupportMember2 sent email to customer and waiting for feedback from the customer about setting up a call to try and see what is going on.
+        2023-09-21 10:30: @SupportMember2 had call with the customer, there were some windows updates pending. They are going to do these updates after work today and feedback
