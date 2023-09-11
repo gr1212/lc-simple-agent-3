@@ -5,3 +5,74 @@ pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-hos
 Update config: 
 https://pip.pypa.io/en/stable/topics/configuration/
 pip config set global.trusted-host "pypi.org files.pythonhosted.org pypi.python.org"
+
+
+
+
+
+####################
+
+
+# embeddings = OpenAIEmbeddings()
+# knowledgeStore = Chroma.from_documents(internalKbPages, embeddings) #, collection_name='internal-knowledge-base-1')
+
+# internalKbPages = TextLoader("data/incident-1.json").load()
+# internalKbPages.append(TextLoader("data/incident-2.json").load())
+# internalKbPages.append(TextLoader("data/incident-3.json").load())
+
+# loader = PyPDFLoader("data/knowledge-base.pdf")
+# internalKbPages = loader.load_and_split()
+
+# for i in pages:
+#     print(i)
+#     print('**************************')
+
+# TODO: add a publicKnowledgePages collection
+# loader = PyPDFLoader("data/south-africa-sarb-currency-and-exchanges-guidelines-for-business-entities.pdf")
+# publicKnowledgePages = loader.load_and_split()
+
+# loader = PyPDFLoader("data/south-africa-sarb-currency-and-exchanges-guidelines-for-business-entities.pdf")
+# publicKnowledgePages.append(loader.load_and_split())
+
+# loader = PyPDFLoader("data/south-africa-currency-and-exchanges-manual-for-authorised-dealers.pdf")
+# publicKnowledgePages.append(loader.load_and_split())
+
+# loader = PyPDFLoader("data/fx-global-code.pdf")
+# publicKnowledgePages.append(loader.load_and_split())
+
+##############################################################
+
+# Load incidents into vector store
+
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+from langchain.text_splitter import CharacterTextSplitter
+
+del incidentDb
+
+with open('data/incident-store.txt') as f:
+    txt1 = f.read()
+
+splitter1 = CharacterTextSplitter(
+    separator='split_me', 
+    chunk_size = 1000,
+    chunk_overlap  = 200,
+    length_function = len,
+    is_separator_regex = False,
+)
+
+incidentPages1 = splitter1.create_documents([txt1])
+incidentEmbeddings1 = OpenAIEmbeddings()
+incidentDb = Chroma.from_documents(incidentPages1, incidentEmbeddings1) 
+
+# incidentDb = Chroma.from_documents(incidentPages1, incidentEmbeddings1, persist_directory='data') 
+# incidentDb.persist()
+
+# result = incidentDb.similarity_search("Bob Jones", k=1) 
+# print(result)
+print(len(incidentPages1))
+print(len(incidentPages1))
+
+result = incidentDb.similarity_search("INC123", k=1) 
+print(result)
+x = 1

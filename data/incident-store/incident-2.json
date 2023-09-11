@@ -1,0 +1,10 @@
+{
+	"incident_number": "INC456",
+	"short_description": "User at CorpA not getting OTP",
+	"long_description": "Mary Sue at CorpA is not getting on OTP when she tries to login",
+	"created_date": "2023-09-21",
+	"closed_date": "N/A",
+	"state": "Open",         
+	"troubleshooting_conversation": [{"comment": "2023-09-21 13:00: @SupportMember1 reached out to the communication delivery team to ask what if there are issues, waiting on feedback."}],        
+	"resolution_notes": "Still open"  
+}

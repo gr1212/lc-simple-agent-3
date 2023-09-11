@@ -1,0 +1,13 @@
+{
+	"incident_number": "INC789",
+	"short_description": "UI Application keeps crashing",
+	"long_description": "Bob Jones at MegaCorpB has the app crashing when he clicks on detach. ",
+	"created_date": "2023-07-21",
+	"closed_date": "N/A",
+	"state": "",         
+	"troubleshooting_conversation": [
+		{"comment": "2023-09-21 09:30: @SupportMember2 sent email to customer and waiting for feedback from the customer about setting up a call to try and see what is going on."}, 
+		{"comment": "2023-09-21 10:30: @SupportMember2 had call with the customer, there were some windows updates pending. They are going to do these updates after work today and feedback"}
+	],        
+	"resolution_notes": "Not resolved"  
+}
